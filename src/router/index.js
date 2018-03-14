@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import WelcomeSpeech from '@/components/WelcomeSpeech'
+import GameBoard from '@/components/GameBoard'
 
 Vue.use(Router)
 
@@ -10,6 +11,10 @@ export default new Router({
         {
             path: '/',
             component: WelcomeSpeech
+        },
+        {
+            path: '/level-:level',
+            component: GameBoard
         }
     ]
 })
