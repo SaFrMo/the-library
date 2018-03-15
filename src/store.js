@@ -3,10 +3,19 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+function clamp (val, min, max) {
+    return Math.max(Math.min(max, val), min)
+}
+
 export default new Vuex.Store({
     state: {
-        amountLit: 1,
-        candles: 10
+        // candle information
+        amountLit: 0,
+        darkPerSecond: 0.01,
+        candles: 10,
+
+        // meta info
+        updatesPerSecond: 10
     },
     mutations: {
         'RELIGHT': state => {
@@ -14,6 +23,14 @@ export default new Vuex.Store({
                 state.amountLit = 1
                 state.candles--
             }
+        },
+        'CANDLE_DECAY': state => {
+            const decay = (1 / state.updatesPerSecond) * state.darkPerSecond
+            state.amountLit = clamp(state.amountLit - decay, 0, 1)
+        },
+        'CHANGE_AMOUNT_LIT': (state, payload) => {
+            state.amountLit += payload
+            state.amountLit = clamp(state.amountLit, 0, 1)
         }
     }
 })

@@ -17,9 +17,12 @@ export default {
         return {
         }
     },
+    mounted () {
+        setInterval(this.update, 1000 / this.$store.state.updatesPerSecond)
+    },
     methods: {
-        relight () {
-
+        update () {
+            this.$store.commit('CANDLE_DECAY')
         }
     }
 }
