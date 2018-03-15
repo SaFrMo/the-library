@@ -9,6 +9,7 @@ import TheIncantation from '@/components/board/TheIncantation'
 import SketchHint from '@/components/utils/SketchHint'
 import LedgerModule from '@/components/board/LedgerModule'
 import ProgressModule from '@/components/board/ProgressModule'
+import ProgressBar from '@/components/utils/ProgressBar'
 
 Vue.config.productionTip = false
 
@@ -19,6 +20,7 @@ Vue.component('the-incantation', TheIncantation)
 Vue.component('sketch-hint', SketchHint)
 Vue.component('ledger-module', LedgerModule)
 Vue.component('progress-module', ProgressModule)
+Vue.component('progress-bar', ProgressBar)
 
 // Register directives
 Vue.directive('full-height', fullHeight)

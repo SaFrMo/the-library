@@ -4,10 +4,12 @@
 
         <the-incantation/>
 
-        <div class="top-wrap">
-            <ledger-module/>
-            <progress-module/>
-        </div>
+        <transition name="slow-fade">
+            <div class="top-wrap" v-if="$store.state.incantationsSpoken > 0">
+                <ledger-module/>
+                <progress-module/>
+            </div>
+        </transition>
 
         <div class="overlay" :style="{ opacity: 1 - $store.state.amountLit }"/>
 
@@ -20,10 +22,16 @@
 export default {
     data () {
         return {
+            updateInterval: null
         }
     },
-    computed: {
-
+    mounted () {
+        this.updateInterval = setInterval(this.update, 1000 / this.$store.state.updatesPerSecond)
+    },
+    methods: {
+        update () {
+            this.$store.dispatch('UPDATE')
+        }
     }
 }
 
@@ -43,6 +51,16 @@ section.main-paper {
     padding: 15px;
     max-width: 900px;
 
+    .top-wrap {
+        display: flex;
+
+        & > * {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    }
+
     // Overlay (simulates darkness)
     .overlay {
         position: fixed;
@@ -50,7 +68,7 @@ section.main-paper {
         right: 0;
         bottom: 0;
         left: 0;
-        // background-color: rgba(#000, 0.85);
+        background-color: rgba(#000, 0.85);
         pointer-events: none;
     }
 }

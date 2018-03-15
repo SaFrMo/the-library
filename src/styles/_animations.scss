@@ -1,9 +1,13 @@
 // bounce (incantation blocker)
-.bounce-enter {
+.bounce-enter,
+.bounce-leave-to {
     transform: translateX(100%);
 }
 .bounce-enter-active {
-    transition: transform 0.3s $easing;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.bounce-leave-active {
+    transition: transform 2s;
 }
 
 // slow fade (most text)

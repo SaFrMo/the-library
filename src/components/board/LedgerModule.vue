@@ -1,19 +1,17 @@
 <template>
 
-    <transition name="slow-fade">
+    <section class="ledger">
 
-        <section class="ledger" v-if="$store.state.incantationsSpoken > 0">
+        <h2>Debts</h2>
 
-            <h2>Debts</h2>
+        <div class="row" v-for="(row, i) in ledger" :key="i">
+            <span class="label">{{ row[0] }}</span>
+            <span class="value">{{ row[1] }}</span>
+        </div>
 
-            <div class="row" v-for="row in ledger">
-                <span class="label">{{ row[0] }}</span>
-                <span class="value">{{ row[1] }}</span>
-            </div>
+        {{ $store.state.books }}
 
-        </section>
-
-    </transition>
+    </section>
 
 </template>
 
@@ -24,7 +22,7 @@ export default {
         ledger () {
             return [
                 ['Incantations', this.$store.state.incantationsSpoken],
-                ['Books', this.$store.state.booksAcquired]
+                ['Books', this.$store.state.books.length]
             ]
         }
     }
@@ -37,9 +35,6 @@ export default {
 @import 'src/styles/animations';
 
 section.ledger {
-    width: 50%;
-    padding: 20px;
-    box-sizing: border-box;
     font-family: $font3;
 
     h2 {

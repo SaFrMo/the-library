@@ -8,7 +8,7 @@
                 <button class="words" @click="onIncantation">{{ incantation }}</button>
 
                 <transition name="bounce">
-                    <span class="slider" v-if="blocked"/>
+                    <span class="slider" v-if="$store.state.incantationBlocked"/>
                 </transition>
 
                 <span class="shadow"/>
@@ -24,13 +24,11 @@
 export default {
     data () {
         return {
-            blocked: false,
             incantation: 'Grata domum, perdidit fabulis; quo manebo huc pertinent.'
         }
     },
     methods: {
         onIncantation () {
-            this.blocked = true
             this.$store.commit('INCANTATION_SPOKEN')
         }
     }
