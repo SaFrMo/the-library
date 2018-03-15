@@ -40,7 +40,8 @@ section.candle-module {
     height: auto;
     border: 2px solid $white;
     padding: 20px;
-    transition: transform 0.5s cubic-bezier(.23,.06,.11,.98);
+    transition: transform 0.5s $easing;
+    z-index: 5;
 
     // Hidden state
     &.hidden {

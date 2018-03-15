@@ -17,11 +17,14 @@ export default {
 <style lang="scss">
 @import 'src/styles/vars';
 
+// import fonts
+@import url('https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day');
+
 body {
     margin: 0;
     background-color: $black;
     color: $white;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: $font1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -31,7 +34,7 @@ button {
     background-color: transparent;
     border: none;
     color: $white;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: $font1;
     cursor: pointer;
     font-size: inherit;
 }

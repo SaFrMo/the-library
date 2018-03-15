@@ -11,7 +11,7 @@ export default new Vuex.Store({
     state: {
         // candle information
         amountLit: 0,
-        darkPerSecond: 0.01,
+        darkPerSecond: 0.005,
         candles: 10,
 
         // meta info
