@@ -4,6 +4,8 @@
 
         <candle-module />
 
+        <main-paper/>
+
     </main>
 
 </template>
@@ -28,7 +30,7 @@ export default {
 @import 'src/styles/vars';
 
 main.game-board {
-    margin: 40px;
+    padding: 40px;
 
     button {
         background-color: $white;
