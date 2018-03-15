@@ -33,6 +33,7 @@ button {
     color: $white;
     font-family: Helvetica, Arial, sans-serif;
     cursor: pointer;
+    font-size: inherit;
 }
 a {
     color: $white;
