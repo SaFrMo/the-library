@@ -18,7 +18,7 @@ export default {
 @import 'src/styles/vars';
 
 // import fonts
-@import url('https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
 
 body {
     margin: 0;
