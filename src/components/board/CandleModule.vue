@@ -23,7 +23,7 @@
 export default {
     data () {
         return {
-            hidden: true
+            hidden: false
         }
     }
 }

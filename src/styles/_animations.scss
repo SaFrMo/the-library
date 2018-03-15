@@ -1,6 +1,15 @@
+// bounce (incantation blocker)
 .bounce-enter {
     transform: translateX(100%);
 }
 .bounce-enter-active {
-    transition: transform 0.6s $easing;
+    transition: transform 0.3s $easing;
+}
+
+// slow fade (most text)
+.slow-fade-enter {
+    opacity: 0;
+}
+.slow-fade-enter-active {
+    transition: opacity 3s;
 }

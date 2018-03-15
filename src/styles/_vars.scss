@@ -2,9 +2,11 @@ $white: #f1f1f1;
 $black: #222;
 
 $color1: #c9c4ab;
+$color1-dark: darken($color1, 10%);
 $color2: #474139;
 
 $font1: Helvetica, Arial, sans-serif;
 $font2: 'Crimson Text', serif;
+$font3: 'Ledger', serif;
 
 $easing: cubic-bezier(.23,.06,.11,.98);

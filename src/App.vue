@@ -19,6 +19,7 @@ export default {
 
 // import fonts
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+@import url('https://fonts.googleapis.com/css?family=Ledger');
 
 body {
     margin: 0;

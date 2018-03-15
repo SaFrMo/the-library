@@ -7,6 +7,8 @@ import CandleModule from '@/components/board/CandleModule'
 import MainPaper from '@/components/board/MainPaper'
 import TheIncantation from '@/components/board/TheIncantation'
 import SketchHint from '@/components/utils/SketchHint'
+import LedgerModule from '@/components/board/LedgerModule'
+import ProgressModule from '@/components/board/ProgressModule'
 
 Vue.config.productionTip = false
 
@@ -15,6 +17,8 @@ Vue.component('candle-module', CandleModule)
 Vue.component('main-paper', MainPaper)
 Vue.component('the-incantation', TheIncantation)
 Vue.component('sketch-hint', SketchHint)
+Vue.component('ledger-module', LedgerModule)
+Vue.component('progress-module', ProgressModule)
 
 // Register directives
 Vue.directive('full-height', fullHeight)

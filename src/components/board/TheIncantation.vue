@@ -5,7 +5,7 @@
         <sketch-hint>
             <span class="word-wrap">
 
-                <span class="words" @click="blocked = true">{{ incantation }}</span>
+                <button class="words" @click="onIncantation">{{ incantation }}</button>
 
                 <transition name="bounce">
                     <span class="slider" v-if="blocked"/>
@@ -14,6 +14,7 @@
                 <span class="shadow"/>
             </span>
         </sketch-hint>
+
     </h2>
 
 </template>
@@ -26,6 +27,12 @@ export default {
             blocked: false,
             incantation: 'Grata domum, perdidit fabulis; quo manebo huc pertinent.'
         }
+    },
+    methods: {
+        onIncantation () {
+            this.blocked = true
+            this.$store.commit('INCANTATION_SPOKEN')
+        }
     }
 }
 
@@ -36,7 +43,6 @@ export default {
 @import 'src/styles/animations';
 
 h2.incantation {
-    font-family: $font2;
     color: $black;
     text-align: center;
     padding: 40px 60px 0;
@@ -51,6 +57,18 @@ h2.incantation {
         padding: 5px 10px;
     }
 
+    // button
+    .words {
+        font-family: $font2;
+        background-color: transparent;
+        border: none !important;
+
+        &:hover {
+            background-color: transparent;
+            color: $black;
+        }
+    }
+
     // slider
     .slider {
         width: 100%;
@@ -59,7 +77,7 @@ h2.incantation {
         bottom: 0;
         left: 0;
         position: absolute;
-        background-color: darken($color1, 10%);
+        background-color: $color1-dark;
     }
 
     // box shadow

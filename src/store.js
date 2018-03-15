@@ -14,6 +14,12 @@ export default new Vuex.Store({
         darkPerSecond: 0.005,
         candles: 10,
 
+        // incantation info
+        incantationsSpoken: 0,
+
+        // book info
+        booksAcquired: 0,
+
         // meta info
         updatesPerSecond: 10
     },
@@ -31,6 +37,9 @@ export default new Vuex.Store({
         'CHANGE_AMOUNT_LIT': (state, payload) => {
             state.amountLit += payload
             state.amountLit = clamp(state.amountLit, 0, 1)
+        },
+        'INCANTATION_SPOKEN': state => {
+            state.incantationsSpoken++
         }
     }
 })

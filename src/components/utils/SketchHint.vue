@@ -16,6 +16,10 @@ export default {
         padding: {
             type: Number,
             default: 20
+        },
+        color: {
+            type: String,
+            default: '#c00'
         }
     },
     data () {
@@ -24,7 +28,8 @@ export default {
             slotHeight: 0,
             rc: null,
             context: null,
-            updateInterval: null
+            updateInterval: null,
+            focused: false
         }
     },
     mounted () {
@@ -45,7 +50,7 @@ export default {
                 this.slotWidth - this.padding,
                 this.slotHeight - this.padding,
                 {
-                    stroke: '#c00'
+                    stroke: this.color
                 }
             )
         },
@@ -86,6 +91,16 @@ div.sketch-hint {
     canvas.hint {
         position: absolute;
         pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    // active state
+    &:hover,
+    &:focus-within {
+        canvas.hint {
+            opacity: 1;
+        }
     }
 }
 
