@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "fh-components": "^1.2.35",
+    "roughjs": "^2.0.0",
     "svg-inline-loader": "^0.8.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
