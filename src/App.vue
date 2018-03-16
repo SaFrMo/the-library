@@ -9,9 +9,15 @@
 </template>
 
 <script>
+import { autoBlur } from 'auto-blur'
+
 export default {
-    name: 'App'
+    name: 'App',
+    mounted () {
+        autoBlur()
+    }
 }
+
 </script>
 
 <style lang="scss">
