@@ -17,3 +17,15 @@
 .slow-fade-enter-active {
     transition: opacity 3s;
 }
+
+// slide up
+.slide-up-enter {
+    transform: translateY(100vh);
+}
+.slide-up-leave-to {
+    transform: translateY(-100vh);
+}
+.slide-up-enter-active,
+.slide-up-leave-active {
+    transition: transform 1s $easing;
+}

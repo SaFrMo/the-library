@@ -6,28 +6,13 @@
 
         <main-paper/>
 
+        <observed-book v-if="$store.state.observedBook"/>
+
+        <div class="overlay" :style="{ opacity: 1 - $store.state.amountLit }"/>
+
     </main>
 
 </template>
-
-<script>
-
-export default {
-    data () {
-        return {
-        }
-    },
-    mounted () {
-        setInterval(this.update, 1000 / this.$store.state.updatesPerSecond)
-    },
-    methods: {
-        update () {
-            this.$store.commit('CANDLE_DECAY')
-        }
-    }
-}
-
-</script>
 
 <style lang="scss">
 @import 'src/styles/vars';
@@ -48,6 +33,17 @@ main.game-board {
             color: $white;
             border: 2px solid $white;
         }
+    }
+
+    // Overlay (simulates darkness)
+    .overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(#000, 0.85);
+        pointer-events: none;
     }
 }
 

@@ -3,7 +3,6 @@
 > A clicker game built in Vue
 
 ## TODO
-* Add `button` blurrer
 * Move update functionality out of Vuex
 
 ## Build Setup

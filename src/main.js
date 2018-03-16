@@ -10,6 +10,7 @@ import SketchHint from '@/components/utils/SketchHint'
 import LedgerModule from '@/components/board/LedgerModule'
 import ProgressModule from '@/components/board/ProgressModule'
 import ProgressBar from '@/components/utils/ProgressBar'
+import ObservedBook from '@/components/board/ObservedBook'
 
 Vue.config.productionTip = false
 
@@ -21,6 +22,7 @@ Vue.component('sketch-hint', SketchHint)
 Vue.component('ledger-module', LedgerModule)
 Vue.component('progress-module', ProgressModule)
 Vue.component('progress-bar', ProgressBar)
+Vue.component('observed-book', ObservedBook)
 
 // Register directives
 Vue.directive('full-height', fullHeight)

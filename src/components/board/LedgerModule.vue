@@ -9,8 +9,6 @@
             <span class="value">{{ row[1] }}</span>
         </div>
 
-        {{ $store.state.books }}
-
     </section>
 
 </template>

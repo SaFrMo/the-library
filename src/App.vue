@@ -10,11 +10,32 @@
 
 <script>
 import { autoBlur } from 'auto-blur'
+import Book from '@/gameplay/Book'
+import books from '@/assets/books'
 
 export default {
     name: 'App',
     mounted () {
         autoBlur()
+        setInterval(this.update, 1000 / this.$store.state.updatesPerSecond)
+    },
+    methods: {
+        update () {
+            this.$store.state.bookProgress += this.$store.state.bookDelta
+            if (this.$store.state.bookProgress >= 1) {
+                this.$store.state.bookProgress = 0
+                this.$store.state.bookDelta = 0
+
+                // grab a random book
+                // TODO: different difficulty levels, make sure we don't get duplicates
+                const newBookIndex = Math.floor(Math.random() * Math.floor(books.easy.length))
+                const newBook = new Book(books.easy[newBookIndex])
+
+                this.$store.commit('ACQUIRE_BOOK', newBook)
+                this.$store.commit('OBSERVE_BOOK', newBook)
+            }
+            this.$store.commit('CANDLE_DECAY')
+        }
     }
 }
 

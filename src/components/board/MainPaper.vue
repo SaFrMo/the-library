@@ -11,31 +11,9 @@
             </div>
         </transition>
 
-        <div class="overlay" :style="{ opacity: 1 - $store.state.amountLit }"/>
-
     </section>
 
 </template>
-
-<script>
-
-export default {
-    data () {
-        return {
-            updateInterval: null
-        }
-    },
-    mounted () {
-        this.updateInterval = setInterval(this.update, 1000 / this.$store.state.updatesPerSecond)
-    },
-    methods: {
-        update () {
-            this.$store.dispatch('UPDATE')
-        }
-    }
-}
-
-</script>
 
 <style lang="scss">
 @import 'src/styles/vars';
@@ -59,17 +37,6 @@ section.main-paper {
             padding: 20px;
             box-sizing: border-box;
         }
-    }
-
-    // Overlay (simulates darkness)
-    .overlay {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(#000, 0.85);
-        pointer-events: none;
     }
 }
 

@@ -41,10 +41,15 @@ export default {
 
             // fill
             this.rc.rectangle(padding / 2, padding / 2, (this.width - padding) * this.$store.state.bookProgress, this.height - padding, {
-                fill: '#c00'
+                fill: '#816a48',
+                fillWeight: 1,
+                stroke: '#444'
             })
             // border
-            this.rc.rectangle(padding / 2, padding / 2, this.width - padding, this.height - padding)
+            this.rc.rectangle(padding / 2, padding / 2, this.width - padding, this.height - padding, {
+                rougness: 2,
+                stroke: '#444'
+            })
         }
     }
 }

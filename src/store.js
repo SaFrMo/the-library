@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Book from '@/gameplay/Book'
 
 Vue.use(Vuex)
 
@@ -9,7 +8,7 @@ function clamp (val, min, max) {
 }
 
 // GAME CONSTANTS
-const bookDelta = 0.01
+const bookDelta = 0.5// 0.01
 
 // STORE
 export default new Vuex.Store({
@@ -27,6 +26,11 @@ export default new Vuex.Store({
         books: [],
         bookProgress: 0,
         bookDelta: 0,
+        observedBook: null,
+        totalBooksAcquired: 0,
+
+        // shelving info
+        shelving: {},
 
         // meta info
         updatesPerSecond: 10
@@ -51,20 +55,19 @@ export default new Vuex.Store({
             state.incantationBlocked = true
             state.bookDelta += bookDelta
         },
-        'ACQUIRE_BOOK': state => {
-            state.books.push(new Book())
+        'ACQUIRE_BOOK': (state, payload) => {
+            // add ID to new book
+            payload.id = `book${state.totalBooksAcquired}`
+            state.books.push(payload)
             state.incantationBlocked = false
+            state.totalBooksAcquired++
+        },
+        'OBSERVE_BOOK': (state, payload) => {
+            state.observedBook = payload
+        },
+        'STOP_OBSERVING_BOOK': state => {
+            state.observedBook = null
         }
 
-    },
-    actions: {
-        'UPDATE': ({ state, commit }) => {
-            state.bookProgress += state.bookDelta
-            if (state.bookProgress >= 1) {
-                state.bookProgress = 0
-                state.bookDelta = 0
-                commit('ACQUIRE_BOOK')
-            }
-        }
     }
 })
