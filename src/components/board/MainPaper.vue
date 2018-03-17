@@ -11,7 +11,7 @@
             </div>
         </transition>
 
-        <shelf-map/>
+        <!-- <shelf-map/> -->
 
     </section>
 

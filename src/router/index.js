@@ -13,7 +13,7 @@ export default new Router({
             component: WelcomeSpeech
         },
         {
-            path: '/level-:level',
+            path: '/book-:nextBook',
             component: GameBoard
         }
     ]

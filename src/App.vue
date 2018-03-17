@@ -21,7 +21,8 @@ export default {
         update () {
             this.$store.state.bookProgress += this.$store.state.bookDelta
             if (this.$store.state.bookProgress >= 1) {
-                this.$store.commit('ACQUIRE_BOOK')
+                this.$store.commit('ACQUIRE_BOOK', this.$route.params.nextBook)
+                this.$router.push('/book-' + (parseInt(this.$route.params.nextBook) + 1))
                 this.$store.commit('OBSERVE_BOOK', this.$store.state.books[this.$store.state.books.length - 1])
             }
             this.$store.commit('CANDLE_DECAY')

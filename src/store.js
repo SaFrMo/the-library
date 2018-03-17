@@ -10,7 +10,7 @@ function clamp (val, min, max) {
 }
 
 // GAME CONSTANTS
-const bookDelta = 0.5// 0.01
+const bookDelta = 0.025
 
 // STORE
 export default new Vuex.Store({
@@ -65,7 +65,7 @@ export default new Vuex.Store({
             state.bookDelta = 0
 
             // add next book
-            state.books.push(new Book(books[state.books.length]))
+            state.books.push(new Book(books[payload]))
             state.incantationBlocked = false
             state.totalBooksAcquired++
         },
