@@ -10,8 +10,6 @@
 
 <script>
 import { autoBlur } from 'auto-blur'
-import Book from '@/gameplay/Book'
-import books from '@/assets/books'
 
 export default {
     name: 'App',
@@ -23,16 +21,8 @@ export default {
         update () {
             this.$store.state.bookProgress += this.$store.state.bookDelta
             if (this.$store.state.bookProgress >= 1) {
-                this.$store.state.bookProgress = 0
-                this.$store.state.bookDelta = 0
-
-                // grab a random book
-                // TODO: different difficulty levels, make sure we don't get duplicates
-                const newBookIndex = Math.floor(Math.random() * Math.floor(books.easy.length))
-                const newBook = new Book(books.easy[newBookIndex])
-
-                this.$store.commit('ACQUIRE_BOOK', newBook)
-                this.$store.commit('OBSERVE_BOOK', newBook)
+                this.$store.commit('ACQUIRE_BOOK')
+                this.$store.commit('OBSERVE_BOOK', this.$store.state.books[this.$store.state.books.length - 1])
             }
             this.$store.commit('CANDLE_DECAY')
         }

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import books from '@/assets/books'
+import Book from '@/gameplay/Book'
 
 Vue.use(Vuex)
 
@@ -58,8 +60,12 @@ export default new Vuex.Store({
             state.bookDelta += bookDelta
         },
         'ACQUIRE_BOOK': (state, payload) => {
-            // add ID to new book
-            state.books.push(payload)
+            // reset book progress
+            state.bookProgress = 0
+            state.bookDelta = 0
+
+            // add next book
+            state.books.push(new Book(books[state.books.length]))
             state.incantationBlocked = false
             state.totalBooksAcquired++
         },
