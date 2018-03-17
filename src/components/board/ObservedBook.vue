@@ -15,8 +15,8 @@
 
             <div class="summary-wrap" v-html="book.summary"/>
 
-            <button @click="$store.commit('STOP_OBSERVING_BOOK')">
-                {{ $store.state.shelving[book.id] ? 'Reshelve' : 'Shelve' }}
+            <button @click="$store.commit('START_SHELVING_OBSERVED_BOOK'); $store.commit('STOP_OBSERVING_BOOK')">
+                {{ $store.state.observedBook.shelf == null ? 'Shelve' : 'Reshelve' }}
             </button>
 
         </section>

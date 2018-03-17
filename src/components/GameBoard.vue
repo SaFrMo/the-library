@@ -42,7 +42,7 @@ main.game-board {
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(#000, 0.85);
+        // background-color: rgba(#000, 0.85);
         pointer-events: none;
     }
 }

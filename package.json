@@ -13,6 +13,7 @@
   "dependencies": {
     "auto-blur": "^1.0.0",
     "fh-components": "^1.2.35",
+    "number-to-letter": "^1.0.1",
     "roughjs": "^2.0.0",
     "svg-inline-loader": "^0.8.0",
     "vue": "^2.5.2",

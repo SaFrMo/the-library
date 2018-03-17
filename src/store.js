@@ -29,8 +29,10 @@ export default new Vuex.Store({
         observedBook: null,
         totalBooksAcquired: 0,
 
-        // shelving info
-        shelving: {},
+        // shelf info
+        shelving: null,
+        rows: 4,
+        shelvesPerRow: 4,
 
         // meta info
         updatesPerSecond: 10
@@ -57,7 +59,6 @@ export default new Vuex.Store({
         },
         'ACQUIRE_BOOK': (state, payload) => {
             // add ID to new book
-            payload.id = `book${state.totalBooksAcquired}`
             state.books.push(payload)
             state.incantationBlocked = false
             state.totalBooksAcquired++
@@ -67,6 +68,9 @@ export default new Vuex.Store({
         },
         'STOP_OBSERVING_BOOK': state => {
             state.observedBook = null
+        },
+        'START_SHELVING_OBSERVED_BOOK': state => {
+            state.shelving = state.observedBook.id
         }
 
     }

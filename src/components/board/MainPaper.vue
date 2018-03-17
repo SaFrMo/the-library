@@ -11,6 +11,8 @@
             </div>
         </transition>
 
+        <shelf-map/>
+
     </section>
 
 </template>

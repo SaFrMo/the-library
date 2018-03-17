@@ -11,6 +11,7 @@ import LedgerModule from '@/components/board/LedgerModule'
 import ProgressModule from '@/components/board/ProgressModule'
 import ProgressBar from '@/components/utils/ProgressBar'
 import ObservedBook from '@/components/board/ObservedBook'
+import ShelfMap from '@/components/board/ShelfMap'
 
 Vue.config.productionTip = false
 
@@ -23,6 +24,7 @@ Vue.component('ledger-module', LedgerModule)
 Vue.component('progress-module', ProgressModule)
 Vue.component('progress-bar', ProgressBar)
 Vue.component('observed-book', ObservedBook)
+Vue.component('shelf-map', ShelfMap)
 
 // Register directives
 Vue.directive('full-height', fullHeight)
