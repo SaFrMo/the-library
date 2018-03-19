@@ -15,6 +15,14 @@ export default {
     name: 'App',
     mounted () {
         autoBlur()
+
+        // make sure we have correct number of books
+        const level = parseInt(this.$route.params.nextBook)
+        for (let i = 0; i < level; i++) {
+            this.$store.commit('ACQUIRE_BOOK', i)
+        }
+
+        // start update loop
         setInterval(this.update, 1000 / this.$store.state.updatesPerSecond)
     },
     methods: {

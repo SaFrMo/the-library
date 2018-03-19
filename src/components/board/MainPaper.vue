@@ -22,14 +22,7 @@
 @import 'src/styles/animations';
 
 section.main-paper {
-    background-color: $color1;
-    width: 75vw;
-    min-height: calc(100vh - 80px);
-    margin: auto;
-    font-family: $font2;
-    color: $black;
-    padding: 15px;
-    max-width: 900px;
+    @include paper-styling;
 
     .top-wrap {
         display: flex;
