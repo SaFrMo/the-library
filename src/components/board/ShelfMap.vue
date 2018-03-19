@@ -1,33 +1,21 @@
 <template>
 
-    <section class="shelf-map">
+    <section :class="['shelf-map', { activated }]">
 
-        <div v-for="i in $store.state.rows" class="row" :key="i">
+        <button class="label" @click="activated = !activated">Shelf Map</button>
 
-            <button
-                class="shelf"
-                @click="shelveBook((i - 1) * $store.state.shelvesPerRow + (j - 1))"
-                v-for="j in $store.state.shelvesPerRow"
-                :key="j">
-                Store in shelf {{ getShelfName(i, j) }}
-            </button>
-
-        </div>
+        <h2>The Shelves</h2>
 
     </section>
 
 </template>
 
 <script>
-import numberToLetter from 'number-to-letter'
 
 export default {
-    methods: {
-        shelveBook (i) {
-            // TODO: try to shelve, see if book is shelved there already
-        },
-        getShelfName (row, col) {
-            return numberToLetter(row - 1) + col
+    data(){
+        return {
+            activated: false
         }
     }
 }
@@ -38,19 +26,39 @@ export default {
 @import 'src/styles/vars';
 
 section.shelf-map {
-    text-align: center;
+    @include paper-styling;
+    position: absolute;
+    right: 0;
+    left: 0;
+    transform: rotate(3deg);
+    transition: transform 0.4s;
 
-    .row {
-        display: flex;
-    }
-    .shelf {
-        background-color: $color1;
-        border: none;
+    // focus tab
+    button.label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform-origin: top right;
+        transform: rotate(-90deg) translate(0.5px, -1px);
+        border-radius: 0;
+        border: 0;
+        font-family: $font2;
+        font-variant: small-caps;
+        font-size: 24px;
+        line-height: 1;
+        background-color: lighten($color1, 10%);
 
         &:hover,
         &:focus {
-            border: none;
+            color: $black;
+            background-color: lighten($color1, 20%);
         }
+    }
+
+    // activated state
+    &.activated {
+        z-index: 2;
+        transform: rotate(0) translate(0, 0);
     }
 }
 

@@ -11,8 +11,6 @@
             </div>
         </transition>
 
-        <!-- <shelf-map/> -->
-
     </section>
 
 </template>
@@ -23,6 +21,7 @@
 
 section.main-paper {
     @include paper-styling;
+    position: relative;
 
     .top-wrap {
         display: flex;

@@ -4,6 +4,8 @@
 
         <candle-module />
 
+        <shelf-map v-if="$store.state.books.length"/>
+
         <main-paper/>
 
         <observed-book v-if="$store.state.observedBook"/>
