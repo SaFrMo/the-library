@@ -10,7 +10,7 @@
             <div class="button-wrap">
                 <button v-if="index > 0" @click="index = Math.max(index - 1, 0)">←</button>
                 <button v-if="index < opening.length - 1" @click="index = Math.min(opening.length, index + 1)">→</button>
-                <router-link to="/level-1" v-if="index >= opening.length - 1">Continue</router-link>
+                <router-link to="/book-0" v-if="index >= opening.length - 1">Continue</router-link>
             </div>
         </div>
 
